@@ -10,10 +10,10 @@
   <style>
     html {
       box-sizing: border-box;
-      background: #ffc600;
+      background: #138293;
       font-family: 'helvetica neue';
       font-size: 20px;
-      font-weight: 200;
+      font-weight: 400;
     }
 
     body {
@@ -24,15 +24,21 @@
       box-sizing: inherit;
     }
 
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
     .panels {
       min-height: 100vh;
       overflow: hidden;
+      display:flex;
     }
 
     .panel {
-      background: #6B0F9C;
+      background: #138293;
       box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
-      color: white;
+      color: rgb(255, 255, 255);
       text-align: center;
       align-items: center;
       /* Safari transitionend event.propertyName === flex */
@@ -41,24 +47,39 @@
         font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
         flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
         background 0.2s;
-      font-size: 20px;
+      font-size: 30px;
       background-size: cover;
       background-position: center;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
     }
 
-    .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
-    .panel2 { background-image:url(https://source.unsplash.com/rFKUFzjPYiQ/1500x1500); }
-    .panel3 { background-image:url(https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&w=1500&h=1500&fit=crop&s=967e8a713a4e395260793fc8c802901d); }
-    .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
-    .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
+    .panel1 { background-image:url(https://lifebyfernie.com/wp-content/uploads/2023/02/Dodger-Stadium-432x652.jpg); }
+    .panel2 { background-image:url(https://images.contentstack.io/v3/assets/blt06f605a34f1194ff/blt08e3f7ad166bc050/669d5702d0c0ef67aac58f43/BCC-2023-EXPLORER-Los_Angeles-Best_places_to_visit-HEADER_MOBILE.jpg?format=webp&auto=avif&crop=1%3A1&quality=100&width=425); }
+    .panel3 { background-image:url(https://www.redfin.com/blog/wp-content/uploads/2022/12/venti-views-PiqHSHYO3Uw-unsplash.jpg); }
+    .panel4 { background-image:url(https://offloadmedia.feverup.com/secretlosangeles.com/wp-content/uploads/2024/02/26040501/los-angeles-attractions.jpg); }
+    .panel5 { background-image:url(https://drupal-prod.visitcalifornia.com/sites/default/files/styles/opengraph_1200x630/public/2020-06/VC_PlacesToVisit_LosAngelesCounty_RF_1170794243.jpg.webp?itok=joYsp-KC); }
 
     /* Flex Children */
     .panel > * {
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
+    .panel > *:first-child {transform: translateY(-100%); }
+    .panel.open-active > *:first-child { transform: translateY(0); }
+    .panel > *:last-child {transform: translateY(100%); }
+    .panel.open-active > *:last-child { transform: translateY(0); }
+    
     .panel p {
       text-transform: uppercase;
       font-family: 'Amatic SC', cursive;
@@ -71,42 +92,96 @@
     }
 
     .panel.open {
+      flex: 5;
       font-size: 40px;
     }
 
-  </style>
+    .panel:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2)
+    }
 
+  </style>
+</head>
+</body>
+
+  <div class="container">
 
   <div class="panels">
     <div class="panel panel1">
-      <p>Hey</p>
-      <p>Let's</p>
-      <p>Dance</p>
+      <p>You</p>
+      <p>Release</p>
+      <p>Love</p>
     </div>
     <div class="panel panel2">
-      <p>Give</p>
       <p>Take</p>
-      <p>Receive</p>
+      <p>The</p>
+      <p>Lead</p>
     </div>
     <div class="panel panel3">
-      <p>Experience</p>
-      <p>It</p>
-      <p>Today</p>
+      <p>Move</p>
+      <p>Past</p>
+      <p>Fear</p>
     </div>
     <div class="panel panel4">
-      <p>Give</p>
-      <p>All</p>
-      <p>You can</p>
+      <p>Believe</p>
+      <p>Your</p>
+      <p>Strong</p>
     </div>
     <div class="panel panel5">
-      <p>Life</p>
-      <p>In</p>
-      <p>Motion</p>
+      <p>No</p>
+      <p>Holding</p>
+      <p>Back</p>
     </div>
   </div>
 
-  <script>
+   <!-- Second Row of Panels -->
+  <div class="panels">
+   <div class="panel panel1">
+    <p>Step</p>
+    <p>Into</p>
+    <p>Greatness</p>
+  </div>
+  <div class="panel panel2">
+    <p>Embrace</p>
+    <p>The</p>
+    <p>Journey</p>
+  </div>
+  <div class="panel panel3">
+    <p>The</p>
+    <p>Unknown</p>
+    <p>Journey</p>
+  </div>
+  <div class="panel panel4">
+    <p>Live</p>
+    <p>With</p>
+    <p>Intention</p>
+  </div>
+  <div class="panel panel5">
+    <p>Find</p>
+    <p>Purpose</p>
+    <p>Everyday</p>
+  </div>
+</div>
+</div>
 
+  <script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen() {
+      console.log('Hello');
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      console.log(e.propertyName);
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
   </script>
 
 
